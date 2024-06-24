@@ -2,11 +2,13 @@ import Image from "next/image";
 import { ContainerScroll } from "@/components/container-scroll-animation";
 import { Spotlight } from "@/components/ui/spotlight";
 import Banner from "@/assets/landing/banner.jpg"
+import Navbar from "@/components/navbar";
 
 export default function Home() {
   return (
     
     <div className=" bg-black">
+      <Navbar></Navbar>
     <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"
         fill="blue"
