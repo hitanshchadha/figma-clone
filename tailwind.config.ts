@@ -1,3 +1,5 @@
+import { Opacity } from "@tsparticles/engine";
+
 const defaultTheme = require("tailwindcss/defaultTheme");
  
 const colors = require("tailwindcss/colors");
@@ -22,7 +24,27 @@ module.exports = {
         input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
       },
       animation: {
+        appear: "appear 1s ease forwards",
         spotlight: "spotlight 2s ease .75s 1 forwards",
+        first: "moveVertical 30s ease infinite",
+        second: "moveInCircle 20s reverse infinite",
+        third: "moveInCircle 40s linear infinite",
+        fourth: "moveHorizontal 40s ease infinite",
+        fifth: "moveInCircle 20s ease infinite",
+        sixth: "button 4s ease infinite",
+        
+      },
+      keyframes: {
+        spotlight: {
+          "0%": {
+            opacity: 0,
+            transform: "translate(-72%, -62%) scale(0.5)",
+          },
+          "100%": {
+            opacity: 1,
+            transform: "translate(-50%,-40%) scale(1)",
+          },
+        },
         moveHorizontal: {
           "0%": {
             transform: "translateX(-50%) translateY(-10%)",
@@ -32,6 +54,25 @@ module.exports = {
           },
           "100%": {
             transform: "translateX(-50%) translateY(-10%)",
+          },
+        },
+        button: {
+          "0%": {
+            transform: "translateX(10%)",
+          },
+          "50%": {
+            transform: "translateX(50%)",
+          },
+          "100%": {
+            transform: "translateX(60%)",
+          },
+        },
+        appear: {
+          "0%": {
+            opacity: 0,
+          },
+          "100%": {
+            opacity: 1,
           },
         },
         moveInCircle: {
@@ -56,23 +97,7 @@ module.exports = {
             transform: "translateY(-50%)",
           },
         },
-      },
-      keyframes: {
-        spotlight: {
-          "0%": {
-            opacity: 0,
-            transform: "translate(-72%, -62%) scale(0.5)",
-          },
-          "100%": {
-            opacity: 1,
-            transform: "translate(-50%,-40%) scale(1)",
-          },
-        },
-        first: "moveVertical 30s ease infinite",
-        second: "moveInCircle 20s reverse infinite",
-        third: "moveInCircle 40s linear infinite",
-        fourth: "moveHorizontal 40s ease infinite",
-        fifth: "moveInCircle 20s ease infinite",
+        
       },
     },
   },

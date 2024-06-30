@@ -1,7 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background-color: black;
+}
 .homebg{
     background-color: black;
     
@@ -10,5 +15,6 @@
     --tw-scale-x: 2;
     --tw-scale-y: 2;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    
     
 }

@@ -1,20 +1,49 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { cn } from "@/utils/cn";
+import { useState } from "react";
 import {
   IconBrandGithub,
   IconBrandGoogle,
-  IconBrandOnlyfans,
-} from "@tabler/icons-react";
+  } from "@tabler/icons-react";
  
-export function SignupFormDemo() {
+
+  export function SignupFormDemo() {
+  const [signup, setsignup] = useState(true);
+  const [login, setlogin] = useState(false);
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form submitted");
   };
   return (
+    <div className="relative z-50">
+    <div className="flex place-content-center w-3/4 bg-black">
+    <div className="bg-black rounded-2xl">
+      
+    <button
+      onClick={() => {
+        setlogin(false);
+        setsignup(true);
+        
+      }}
+      className={cn("  text-white p-2 relative z-50  rounded-2xl", signup ? "bg-white text-black" : "bg-black text-white ")}
+      type="submit">SignUp
+      
+      
+      </button>
+      <button
+      onClick={() => {setlogin(true);
+        setsignup(false);
+        }
+      }
+      className={cn("  text-white p-2 relative z-50 ml-5 rounded-2xl", login ? "bg-white text-black "  : "bg-black text-white")}
+      type="submit">Login</button>
+    </div>
+    </div>
+  {signup && <div className="animate-appear">
     <div className=" testing max-w-md mr-20 w-full rounded-none md:rounded-2xl p-4 md:p-8 shadow-input z-50 bg-white dark:bg-black">
       
  
@@ -64,6 +93,62 @@ export function SignupFormDemo() {
           
         </div>
       </form>
+    </div></div>}
+
+
+    {login && <div  className="animate-appear">
+    <div className=" testing max-w-md  mr-20 w-full rounded-none md:rounded-2xl p-4 md:p-8 shadow-input z-50 bg-white dark:bg-black">
+      
+ 
+      <form className="my-8 " onSubmit={handleSubmit}>
+      <div className="flex flex-col w-96 md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
+          <LabelInputContainer>
+            <Label htmlFor="firstname">Username</Label>
+            <Input id="firstname" placeholder="Tyler" type="text" />
+          </LabelInputContainer>
+          
+        </div>
+
+        
+        <LabelInputContainer className="mb-4">
+          <Label htmlFor="email">Email Address</Label>
+          <Input id="email" placeholder="projectmayhem@fc.com" type="email"  />
+        </LabelInputContainer>
+        <LabelInputContainer className="mb-4">
+          <Label htmlFor="password">Password</Label>
+          <Input id="password" placeholder="••••••••" type="password" />
+        </LabelInputContainer>
+        
+ 
+        <button
+          className=" bg-gradient-to-br relative group/btn from-sky-400 dark:from-[#3B82F6] dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
+          type="submit"
+        >
+          Login &rarr;
+          <BottomGradient />
+        </button>
+ 
+        <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
+ 
+        <div className="flex flex-col space-y-4">
+          
+          <button
+            className=" relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
+            type="submit"
+          >
+            <IconBrandGoogle className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
+            <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+              Google
+            </span>
+            <BottomGradient />
+          </button>
+          
+        </div>
+      </form>
+    </div>
+    </div>}
+
+
     </div>
   );
 }

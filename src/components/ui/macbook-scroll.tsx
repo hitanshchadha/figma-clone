@@ -191,7 +191,7 @@ export const Keypad = () => {
  
     
 
-  return (<div className=" place-content-center flex w-[50%] z-50 place-items-center">
+  return (<div className=" animate-appear place-content-center flex w-[50%] z-50 place-items-center">
     <div className="   keyboard ml-5  overflow-hidden rounded-md bg-[#050505] mx-1 p-1 tracking-normal">
       {/* First Row */}
       <Row>
@@ -590,7 +590,7 @@ export const KBtn = (
   }, [])
     const keypressevent = (e) => {
         if(e.code == keyy ){
-            setColour("shadow-none scale-125  bg-sky-500")
+            setColour("shadow-none scale-125  bg-sky-500 ")
             
         
         }
